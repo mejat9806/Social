@@ -1,7 +1,11 @@
-import React from "react";
+import MainLayout from "@/components/MainLayout";
 
 function Dashboard() {
-  return <div>Dashboard</div>;
+  return (
+    <MainLayout>
+      <div>hshhshs</div>
+    </MainLayout>
+  );
 }
 
 export default Dashboard;

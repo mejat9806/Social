@@ -12,7 +12,7 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
         setUser(response.data);
       });
     }
-  }, []);
+  }, [user]);
 
   console.log(user);
   return (

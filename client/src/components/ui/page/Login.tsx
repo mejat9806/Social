@@ -6,6 +6,8 @@ import { z } from "zod";
 import { Form } from "../form";
 import { Button } from "../button";
 import FormInputLogin from "@/components/ui/FormInputLogin";
+import { toast } from "../use-toast";
+import { cn } from "@/lib/utils";
 
 function Login() {
   const navigate = useNavigate();
@@ -32,7 +34,12 @@ function Login() {
     if (data.error) {
       console.log(data.error);
     } else {
-      navigate("/dashboard");
+      toast({
+        title: "Welcome",
+        variant: "success",
+        className: cn(),
+      });
+      navigate("/");
     }
   }
   return (

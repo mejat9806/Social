@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../button";
 import FormInputRegister from "../FormInputRegister";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "../use-toast";
 
 function Register() {
   const navigate = useNavigate();
@@ -16,9 +18,11 @@ function Register() {
         .string()
         .min(1, { message: "Please enter a valid email address" })
         .email(),
-      password: z.string().min(8),
-      passwordConfirmed: z.string().min(8),
-      username: z.string().min(3),
+      password: z.string().min(8, { message: "Need 8 character" }),
+      passwordConfirmed: z.string().min(8, { message: "Need 8 character" }),
+      username: z
+        .string()
+        .min(3, { message: "Please enter atleast 3 characters" }),
     })
     .refine((data) => data.password === data.passwordConfirmed, {
       message: "passwords do not match",
@@ -44,6 +48,12 @@ function Register() {
     if (data.error) {
       console.log(data.error);
     } else {
+      toast({
+        title: "ok created",
+        description: "user created successfully",
+        variant: "success",
+        //className: cn(),
+      });
       navigate("/login");
     }
   }
@@ -51,7 +61,7 @@ function Register() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(registerUser)}
-        className="space-y-8 flex flex-col  capitalize w-full"
+        className="space-y-8 flex flex-col  capitalize  "
       >
         <FormInputRegister
           form={form}

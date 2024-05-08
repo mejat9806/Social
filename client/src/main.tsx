@@ -3,12 +3,20 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import { UserContextProvider } from "./context/userContext.tsx";
+
+import "react-toastify/dist/ReactToastify.css";
+import { Toaster } from "./components/ui/toaster.tsx";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
+    <ReactQueryDevtools client={queryClient} />
     <BrowserRouter>
       <App />
+      <Toaster />
     </BrowserRouter>
   </React.StrictMode>,
 );

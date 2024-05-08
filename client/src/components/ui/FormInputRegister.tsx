@@ -22,7 +22,6 @@ interface FormInput {
   placeholder: string;
   name: "email" | "password" | "passwordConfirmed" | "username";
   type: string;
-  error: string;
 }
 
 function FormInputRegister({
@@ -31,7 +30,6 @@ function FormInputRegister({
   placeholder,
   name,
   type,
-  error,
 }: FormInput) {
   return (
     <FormField
@@ -39,7 +37,7 @@ function FormInputRegister({
       name={name}
       render={({ field }) => (
         <FormItem className="relative">
-          <FormLabel className="text-black capitalize">{label}</FormLabel>
+          <FormLabel className="text-white capitalize">{label}</FormLabel>
           <FormControl>
             <Input
               placeholder={placeholder}

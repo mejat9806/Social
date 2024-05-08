@@ -1,12 +1,40 @@
 import Register from "./Register";
-
+import backgroundImage from "/registerPhoto.webp";
 function RegisterPage() {
   return (
-    <div className="flex flex-col justify-center items-center h-screen ">
-      <div className="bg-slate-100 p-10 rounded-3xl flex flex-col mb-24 justify-center items-center shadow-2xl w-[30%]">
-        <h1 className="text-3xl font-semibold uppercase">Register</h1>
-        <div className="h-1 w-full bg-slate-300/50 my-5 rounded-xl"></div>
-        <Register />
+    <div
+      className="flex justify-center items-center w-screen h-screen bg-blue-200 "
+      // style={{
+      //   backgroundImage: `url(https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
+      // }}
+      // style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className="flex sm:p-10 justify-center items-center">
+        <img
+          src={
+            "https://images.pexels.com/photos/1570779/pexels-photo-1570779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          }
+          alt="signin image"
+          className="h-[700px] w-[00px]  sm:w-[300px] md:w-[400px]"
+        />
+        <div className="w-full  sm:w-[500px] md:w-[600px]  transition-all duration-150">
+          <div className="">
+            {/* <div
+            className=""
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          >
+            <img src={backgroundImage} alt="register photo" className="" />
+            <h1 className="">register</h1>
+          </div> */}
+            <div className="bg-slate-400/60 p-10 shadow-2xl w-full backdrop-blur-md sm:h-[700px]">
+              <h1 className="text-4xl font-bold mb-6 text-white">
+                <span className="">S</span>ign Up Here
+              </h1>
+              <div className=""></div>
+              <Register />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
